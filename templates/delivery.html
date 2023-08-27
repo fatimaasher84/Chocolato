@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid py-5" style="padding-left:70px; padding-right:70px;">
+    <table>
+        <tr>
+            <td><p class="display-6" style="color:brown;">Delivery Information</p>
+            <p><b>We send all of our UK Mainland deliveries (excluding Highlands and Islands) by DPD so they are usually on less than a 2 day service with tracking information provide.</b>
+                <table border="0">
+                    <tbody>
+                    <tr>
+                        <td>Standard Delivery:</td>
+                        <td>£3.95 / Free on orders over £50 (Please note: For UK Mainland deliveries (excluding highlands, islands and Northern Ireland) will send via DPD every day, for Highlands, Islands and Northern Ireland we will send via Royal Mail on Monday, Wednesday and Friday on an economy service.&nbsp;</td>
+                        <td><br></td>
+                    </tr>
+                    <tr>
+                        <td>Local Collection:</td>
+                        <td><p>Free - Important information below</p></td>
+                        <td><br></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br>
+            </td>
+            <td>
+                <img src="/static/images/deliveryman.png" class="img-fluid" style="float:right;"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="/static/images/choco.png" class="img-fluid"/>
+            </td>
+            <td>
+                <b>Standard Delivery:</b><br><br>Our standard UK mainland (excluding Highlands, Islands and Northern Ireland delivery is a DPD Next Day delivery service. Highlands, Islands and Northern Ireland orders will be sent via Royal Mail on Monday, Wednesday and Friday on an economy service. 
+                You will receive an email from DPD Local the morning of delivery giving you a one hour delivery slot. If this is not convenient, you can arrange for the delivery day to be changed or for the parcel to be delivered to a neighbour.</p>
+                <br><b>Please note,</b> this service is SIGNED FOR and we cannot be liable for the delivery if the recipient is not available to receive the delivery.
+                <br><b>If you would like us to re-send the parcel, additional shipping must be paid at £6.50 per parcel.</b>
+                <br><br>
+            </td>
+            <td style="float:right; padding-top:30px;"><img src="/static/images/deliveryman.png" class="img-fluid"/></td>
+        </tr>
+        <tr>
+            <td width="50%"><p><b>FREE UK Shipping on orders over £50:</b>
+            <br>Orders over £50 qualify for FREE UK Mainland Shipping, which is dispatched via Royal Mail 48 Hour Delivery. If your order is over 2kg, this will be sent via DPD Next Day Delivery, which will require a signature.
+            <br><br>
+            <b>Channel Islands, Isle of Man, Isle of Wight, Sicily Isles, Scottish Highlands, Scottish Islands, Northern Ireland, Republic Of Ireland:</b>
+            <br><br>
+            <b>Please Note:</b> All deliveries will only occur on working days (Mon - Fri), excluding bank holidays. Please note, a signature is required for DPD Next Day delivery, unfortunately we are not responsible for a failed delivery if no one is available to sign for the parcel and the parcel is returned to the DPD sorting office. Re-delivery can be arranged for an additional charge.
+            </p></td>
+            <td width="50%"><img src="/static/images/delivery.png" class="img-fluid" style="float:right;"/></td>
+        </tr>
+    </table>   
+    <br><br> 
+    <div class="d-flex justify-content-center row bg-warning">
+        <div class="col-xl-3 py-3 text-center"><i class="fa fa-cube" style="font-size:24px"></i><br>
+            <b>FREE SHIPPING</b><br>
+            <p>Free UK Mainland Shipping on orders over £50.</p>
+        </div>
+        <div class="col-xl-3 py-3 text-center"><i class="fa fa-phone" style="font-size:24px"></i><br><b>CUSTOMER SERVICE</b><br>
+            <p>We are available from Monday to Thursday to answer your questions.</p>
+        </div>
+        <div class="col-xl-3 py-3 text-center"><i class="fa fa-lock" style="font-size:24px"></i>
+            <br><b>SECURE PAYMENT</b><br>
+            <p>Your payment information is processed securely.</p>
+        </div>
+        <div class="col-xl-3 py-3 text-center"><i class="fa fa-envelope" style="font-size:24px;"></i><br><b>CONTACT US</b><br>
+            <p>Need to contact us? Just send us an e-mail.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

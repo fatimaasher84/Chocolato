@@ -1,0 +1,108 @@
+<!--Including header and footer which is common in a django tag-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="slideshow-container">
+        <div class="slide">
+            <img src="{% static 'images/s1.jpg' %}">
+        </div>
+        <div class="slide">
+            <img src="{% static 'images/s2.jpg' %}">
+        </div>
+        <div class="slide">
+            <img src="{% static 'images/s3.jpg' %}">
+        </div>
+        <div class="slide">
+            <img src="{% static 'images/s4.jpg' %}">
+        </div>
+        <div class="slide">
+            <img src="{% static 'images/s6.jpg' %}" style="width:130%;">
+        </div>
+    </div>
+    <marquee onmouseover="stop()" onmouseout="start()" style="width:100%;">
+        {% for news in newsData %}
+            <a href="/newsDetail/{{news.news_slug}}">{{news.news_title}}</a>&nbsp;&nbsp;
+        {% endfor %}
+    </marquee>
+    <div style="padding-top:30px; padding-bottom:20px; width:100%;">
+        <p class="con">WELCOME TO</p>
+        <p class="display-6 con"><b>The Chocolate Society</b></p>
+        <p style="text-align:center;">If you love chocolate and seek fresh, true flavours with inspired taste<br>combinations - welcome to The Chocolate Society.  Here you can lift the<br>lid on our world of exquisite fresh chocolates.  We let perfectly<br>pitched flavours and luxurious textures speak for themselves.  So take a<br>quiet moment to savour our fresh chocolates.  From sumptuous ganache<br>truffles and bon bons to irresistibly crunchy pralines and honeycomb,<br>our chocolates are simply enthralling.</p>
+    </div>
+    <div class="row" style="padding-top:30px; padding-bottom:20px;">
+        <div class="col-xl-6 p-4">
+            <p class="con">REAL INNOVATION</p>
+            <p class="display-6 con"><b>The Hot Chocolate Shaker</b></p>
+            <p style="text-align:center;">Are you fed up with lumps of chocolate left at the bottom of your cup of<br>
+                hot chocolate? If so, you just have to discover more about our ground<br>
+                breaking Hot Chocolate Shaker!</p>            
+        </div>
+        <div class="col-xl-6 p-4">
+            <img src="/static/images/chocoshaker.jpg" class="rounded-circle" alt="Chocolates" style="width:550px; border:2px dotted black;">
+        </div>
+        <div class="row" style="padding-top:30px; padding-bottom:20px;">
+            <div class="col-xl-6 p-4">
+                <img src="/static/images/box-of-the-month.jpg" class="rounded-circle" alt="Chocolates" style="float:right; width:550px; border:2px dotted black;">
+            </div>    
+            <div class="col-xl-6 p-4">
+                <p class="con">SUBSCRIPTIONS</p>
+                <p class="display-6 con"><b>Box of The Month</b></p>
+                <p style="text-align:center;"><b>Every month our chocolatiers create a brand new Box of The<br>
+                    Month, which has been voted Best Chocolate Subscription by The<br>
+                    Independent Newspaper for 2019, 2020, and 2021.</b><br><br>
+                    Only 1250 of these mouth-watering boxes of chocolates are made each month and competition for a box is high!</p>            
+            </div>
+        </div>
+    </div>
+    
+    <div class="blogdiv container-flex" style="background-color:#FFC631;"><br>
+        <div style="text-align:center; font-family:ITC Caslon No 224, serif;">STAY UP-TO-DATE<h3><a href="{% url 'blg' %}" class="bll">Blog Posts</a></h3><br></div>
+            <table>
+                <tr>
+                    <td>
+                        <div class="row" style="display:flex;">    
+                            {% for bl in bgData %}
+                            <div class="col-lg-4" style="flex:1; padding-left:20px;">
+                                {% if bl.blog_img != NULL %}
+                                    <img src="/media/{{bl.blog_img}}" class="img-fluid img-thumbnail"/>
+                                    <br><br>
+                                    <h4 class="mb-0">{{bl.blog_title}}</h4>
+                                    <p class="mb-1">{{bl.blog_date}}</p>
+                                    <p><b>By &nbsp; {{bl.blog_author}}</b></p>
+                                    <hr>
+                                    <!--truncatechars:50 or slice:":50" can be used to show limited characters-->
+                                    <p>{{bl.blog_des | truncatechars:50 | safe}}</p>
+                                    <div><a href="/blogDetails/{{bl.blog_slug}}" role="button" class="btn" style="color:#FFC631; background-color:black;">Continue Reading</a></div>
+                                    <br>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="d-flex justify-content-center row" style="background-color:#FFC631;">
+            <div class="col-xl-3 py-3 text-center"><i class="fa fa-cube" style="font-size:24px"></i><br>
+                <b>FREE SHIPPING</b><br>
+                <p>Free UK Mainland Shipping<br> on orders over £50.</p>
+            </div>
+            <div class="col-xl-3 py-3 text-center"><i class="fa fa-phone" style="font-size:24px"></i><br><b>CUSTOMER SERVICE</b><br>
+                <p>We are available from Monday to <br>Thursday to answer your questions.</p>
+            </div>
+            <div class="col-xl-3 py-3 text-center"><i class="fa fa-lock" style="font-size:24px"></i>
+                <br><b>SECURE PAYMENT</b><br>
+                <p>Your payment information is<br> processed securely.</p>
+            </div>
+            <div class="col-xl-3 py-3 text-center"><i class="fa fa-envelope" style="font-size:24px;"></i><br><b>CONTACT US</b><br>
+                <p>Need to contact us?<br> Just send us an e-mail.</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="/static/js/slider.js"></script>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid py-5">
+
+    <div style="text-align:center;">
+        <img src="{% static '/images/email-icon-117.png' %}" width="100px">
+        <br><br><br><h4 stle="color:brown;" class="text-center">{{msg}}</h4>
+        <br><br><p>Return to <a href="/" title="Home">Home</a></p>
+    </div>
+</div>
+
+{% endblock %}
+
+</body>
+</html>

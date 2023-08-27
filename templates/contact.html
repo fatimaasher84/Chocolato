@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="txtbox" style="text-align:center;"><br><br>
+    <p class="display-6" style="color:brown;">Hi! We're Here.</p><br>
+    <p><a href="/" title="Home">Home</a>&nbsp;&nbsp;/&nbsp;&nbsp;<span style="color:brown;">Contact Us</span>
+    <br><br>
+    <h2>How Can We Help You?</h2><br>
+    <p>Our team is here to help. Whether your inquiry is about our chocolates, gift items, or support,<br>simply fill out the contact form below.<br><br>We look forward to hearing from you!</p>
+    <p style="color:brown;" class="display-6"><b>{{n}}</b></p>
+    <div style="display:flex; padding:50px;">
+        <div style="flex:1;">
+            <form id="contactEnquiry" autocomplete="off" role="form" method="post" class="needs-validated" action="{% url 'contact' %}">
+                {% csrf_token %}
+                        
+                <div class="col-md-12 mb-3 mt-3">
+                    <label for="contactName" class="form-label" style="float:left;">Name</label>
+                    <input type="text" name="contactName" id="contactName" placeholder="Enter name" class="form-control" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="col-md-12 py-2 mb-3 mt-3">
+                    <label for="contactEmail" class="form-label" style="float:left;">Email Address</label>
+                    <input type="email" name="contactEmail" id="contactEmail" placeholder="Enter email" class="form-control" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="col-md-12 py-2 mb-3 mt-3">
+                    <label for="contactPhone" class="form-label" style="float:left;">Phone</label>
+                    <input type="tel" name="contactPhone" id="contactPhone" placeholder="Enter phone" class="form-control" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="col-md-12 py-2 mb-3 mt-3">
+                    <label for="contactMessage" class="form-label" style="float:left;">Message</label>
+                    <textarea name="contactMessage" id="contactMessage" cols="30" rows="4" placeholder="Message" data-bv-field="contactMessage" class="form-control" required></textarea>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="col-md-12 mb-3 mt-3 text-end my-3 d-flex flex-column justify-content-center"><button class="btn btn-warning " type="submit" title="Send Message">Send Message</button></div>
+                
+            </form>
+        </div>
+        <div style="flex: 1;">
+            <img src="/static/images/chocolatewithtea.png" class="img-fluid"/></div>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid py-5">
+  <table class="txtbox">
+    <tr>
+      <td style="padding-left:120px;">
+        <p class="display-6" style="color:brown;">Gift Items</p>
+        <p>We are the online chocolatier, the perfect destination for all gifting occasions.</p>
+      </td>
+     </tr>
+     <tr>
+      <td style="padding-left:70px;">
+        {% for g in giftData %}
+        <div class="blogpost" style="float:left; height:100%">
+          <div style="border:1px dashed black;">
+            <!--broken image handling -->
+            {% if g.gt_image != NULL %}
+              <a href="/giftdetails/{{g.gt_slug}}"><img src="/media/{{g.gt_image}}" width="100%" height="100%"/></a></div>
+            {% endif %}
+            <div><br>
+            <h1>{{g.gt_title}}</h1>
+            <hr>
+            <p class="con"><b>{{g.gt_price}}</b></p>
+          </div>
+        </div>
+        {% empty %}
+        <b> No records found </b>
+        {% endfor %}
+      </td>
+    </tr>
+    <!--Pagination with bootstrap-->
+    <tr>
+      <td style="padding-left:0px;">
+        <div>
+          <nav aria-label="...">
+            <ul class="pagination justify-content-center">
+              {% if giftData.has_previous %}
+                <li class="page-item">
+                  <a class="page-link" href="/gift/?page=1" tabindex="-1">First</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="/gift/?page={{ giftData.previous_page_number }}" tabindex="1">Previous</a>
+                </li>
+              {% endif %}
+              {% for n in totalPageList %}
+              <li class="page-item"><a class="page-link" href="/gift/?page={{n}}">{{n}}</a></li>
+              {% endfor %}
+              {% if giftData.has_next %}
+                <li class="page-item">
+                  <a class="page-link" href="/gift/?page={{ giftData.next_page_number }}">Next</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="/gift/?page={{ lastpage }}">Last</a>
+                </li>
+              {% endif %}
+            </ul>
+          </nav>
+          <br></div>
+      </td>
+    </tr>
+  </table>
+  
+</div>
+{% endblock %}
+</body>
+</html>

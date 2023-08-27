@@ -1,0 +1,47 @@
+{% load static %}
+
+    <div class="container-fluid pt-4" style="background-color:black; color:#FFC631;">
+        <div class="row">
+            <div class="col-lg-3">
+                <p class="fs-4 fw-light">QUICK LINKS</p>
+                <ul>
+                    <li><a href="{% url 'about' %}" class="text-decoration-none ">About</a></li>
+                    <li><a href="{% url 'chocolates' %}" class="text-decoration-none">Chocolates</a></li>
+                    <li><a href="{% url 'gift' %}" class="text-decoration-none">Gift Box</a></li>
+                    <li><a href="{% url 'delivery' %}" class="text-decoration-none">Delivery Information</a></li>
+                    <li><a href="{% url 'trade' %}" class="text-decoration-none">Trade</a></li>
+                    <li><a href="{% url 'contact' %}" class="text-decoration-none">Contact</a></li>
+                </ul>
+                <br>
+            </div>
+            <div class="col-lg-3">
+                <p class="fs-4 fw-light">ABOUT THE CHOCOLATE SOCIETY</p>
+                <p>We are the online chocolatier, the perfect destination for all gifting occassions.Famous artisanal chocolate.</p>
+            </div>
+            <div class="col-lg-3">
+                <p class="fs-4 fw-light">NEWSLETTER</p>
+                <p>Promotions,new products and sales. Directly to your inbox.</p>
+                <div class="input">
+                    <form method="post" role="form" action="{% url 'newsletter' %}">
+                        {% csrf_token %}    
+                        <input type="email" id="newsltr" name="newsltr" placeholder="Enter e-mail">
+                        <button type="submit" class="btn btn-outline-warning btn-sm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <p class="fs-4 fw-light">FOLLOW US</p>
+                <div class="container">
+                    <!-- Facebook -->
+                    <i class="fa fa-facebook" style="font-size:24px;"></i>
+                        
+                    <!-- Twitter -->
+                    <i class="fa fa-twitter" style="font-size:24px;"></i>
+                    
+                    <!-- Instagram -->
+                    <i class="fa fa-instagram" style="font-size:24px;"></i>
+                </div>           
+            </div>
+        </div>
+    </div>
+</html>        

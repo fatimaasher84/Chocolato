@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid py-5">
+    <table class="txtbox">
+    <tr>
+        <td style="padding-left:20px;">
+            <p class="display-6" style="color:brown;">Blogs</p>
+                <div class="row" style="display:flex;">    
+                    {% for bl in blogData %}
+                        <div class="col-lg-4 pl-4" style="flex:1;">
+                            {% if bl.blog_img != NULL %}
+                                <img src="/media/{{bl.blog_img}}" class="img-fluid img-thumbnail"/>
+                                <br><br>
+                                <h3 class="mb-0">{{bl.blog_title}}</h3>
+                                <p class="mb-1">{{bl.blog_date}}</p>
+                                <p><b>By &nbsp; {{bl.blog_author}}</b></p>
+                                <hr/>
+                                <!--truncatechars:50 or slice:":50" can be used to show limited characters-->
+                                <p>{{bl.blog_des | truncatechars:100 | safe}}</p>
+                                <div><a href="/blogDetails/{{bl.blog_slug}}" role="button" class="btn" style="color:#FFC631; background-color:black;">Continue Reading</a></div>
+                                <br/><br/><br/>
+                                
+
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+        </td>
+    </tr>
+    <!--Pagination with bootstrap-->
+    <tr>
+        <td style="padding-left:70px;">
+          <div>
+            <nav aria-label="...">
+              <!--justify-content-center for ppagination in center-->
+              <ul class="pagination justify-content-center">
+                {% if blogData.has_previous %}
+                  <li class="page-item">
+                    <a class="page-link" href="/blg/?page=1" tabindex="-1">First</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="/blg/?page={{ blogData.previous_page_number }}" tabindex="1">Previous</a>
+                  </li>
+                {% endif %}
+                {% for n in totalPageList %}
+                <li class="page-item"><a class="page-link" href="/blg/?page={{n}}">{{n}}</a></li>
+                {% endfor %}
+                {% if blogData.has_next %}
+                  <li class="page-item">
+                    <a class="page-link" href="/blg/?page={{ blogData.next_page_number }}">Next</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="/blg/?page={{ lastpage }}">Last</a>
+                  </li>
+                {% endif %}
+              </ul>
+            </nav>
+            <br></div>
+        </td>
+      </tr>
+
+    </table>
+</div>
+{% endblock %}
+</body>
+</html>

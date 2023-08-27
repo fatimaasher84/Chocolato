@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div style="display:flex; padding:20px;" class="txtbox">
+    <div style="flex:1;" class="ptext py-5">
+    <p class="display-6" style="color:brown;">{{details.ch_title}}</p>
+    <h2>{{details.ch_price}}</h2>
+    <hr>
+    <p style="font-family:Calibri;">{{details.ch_des | safe}}</p>
+    </div>
+    <div style="flex: 1; padding:20px;"><img src="/media/{{details.ch_image}}" class="rounded float-end img-fluid" style="border:2px dashed brown; width:80%"/></div>
+</div>
+{% endblock %}
+</body>
+</html>

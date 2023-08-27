@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section>
+        <h1>User Form:</h1>
+        <br>
+        <form method="post" action="{% url 'submitform' %}">
+        {% csrf_token %}    
+        {{form}}
+            <div><br><button type="submit">Save</button></div>
+            <div>Output</div>
+            <div><input type="text" value={{output}}></div>
+        </form>
+    </section>
+{% endblock %}
+
+</body>
+</html>

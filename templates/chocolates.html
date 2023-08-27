@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid py-5">
+  <table class="txtbox">
+    <tr>
+      <td style="padding-left:120px;">
+        <p class="display-6" style="color:brown;">Our Chocolates</p>
+        <p>Search from our best selling chocolates.</p>
+      </td>
+     </tr>
+    <tr>
+      <td style="padding-left:120px;">
+        <form method="get">
+          <input type="text" name="chocolatename">
+          <input type="submit" value="Search"/>
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding-left:70px;">
+        {% for choco in chocolateData %}
+        <div class="blogpost" style="float:left; height:100%">
+          <div style="border:1px dashed black;">
+            <!--broken image handling -->
+            {% if choco.ch_image != NULL %}
+              <a href="/chocodetails/{{choco.ch_slug}}"><img src="/media/{{choco.ch_image}}" width="100%" height="100%"/></a></div>
+            {% endif %}
+            <div><br>
+            <h1>{{choco.ch_title}}</h1>
+            <hr>
+            <p class="con"><b>{{choco.ch_price}}</b></p>
+          </div>
+        </div>
+        {% empty %}
+        <div style="padding-left:70px;"><br><b> No records found </b></div>
+        {% endfor %}
+      </td>
+    </tr>
+    <!--Pagination with bootstrap-->
+    <tr>
+      <td style="padding-left:70px;">
+        <div>
+          <nav aria-label="...">
+            <!--justify-content-center for ppagination in center-->
+            <ul class="pagination justify-content-center">
+              {% if chocolateData.has_previous %}
+                <li class="page-item">
+                  <a class="page-link" href="/chocolates/?page=1" tabindex="-1">First</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="/chocolates/?page={{ chocolateData.previous_page_number }}" tabindex="1">Previous</a>
+                </li>
+              {% endif %}
+              {% for n in totalPageList %}
+              <li class="page-item"><a class="page-link" href="/chocolates/?page={{n}}">{{n}}</a></li>
+              {% endfor %}
+              {% if chocolateData.has_next %}
+                <li class="page-item">
+                  <a class="page-link" href="/chocolates/?page={{ chocolateData.next_page_number }}">Next</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="/chocolates/?page={{ lastpage }}">Last</a>
+                </li>
+              {% endif %}
+            </ul>
+          </nav>
+          <br></div>
+      </td>
+    </tr>
+  </table>
+  
+</div>
+{% endblock %}
+</body>
+</html>

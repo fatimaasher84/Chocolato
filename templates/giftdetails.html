@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div style="display:flex; padding:20px;" class="txtbox">
+    <div style="flex:1;" class="ptext py-5">
+        <p class="display-6" style="color:brown;">{{ gdetails.gt_title }}</p>
+    <b><h2>{{ gdetails.gt_price }}</h2></b>
+    <hr>
+    <p style="font-family:Calibri">{{ gdetails.gt_des | safe }}</p>
+    </div>
+    <div style="flex: 1; padding:20px;"><img src="/media/{{ gdetails.gt_image }}" class="rounded float-end img-fluid" style="border:2px dashed brown; width:80%"/></div>
+</div>
+{% endblock %}
+</body>
+</html>
